@@ -1,6 +1,7 @@
 <?php
-// Cargar configuración inicial
-require_once "../config/database.php";
+
+// Definir constante global para rutas absolutas
+define('APP_ROOT', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR);
 
 // Ruta solicitada (e.g., /usuario/login)
 $request = $_GET['url'] ?? '';
@@ -28,5 +29,5 @@ if ($request) {
         echo "Controlador no encontrado.";
     }
 } else {
-    echo "Bienvenido a la aplicación CRUD de Alojamientos.";
+    echo "Bienvenido a Alojamientos App.";
 }

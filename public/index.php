@@ -1,18 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+// Cargar configuración inicial
+require_once "../config/database.php";
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alojamientos App</title>
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
-    </style>
-</head>
+// Ruta solicitada (e.g., /usuario/login)
+$request = $_GET['url'] ?? '';
 
-<body style="background-color: #434C5E; color: #D8DEE9; font-family: 'Open Sans', serif">
-    <h1>Alojamientos App</h1>
-    <script></script>
-</body>
+// Procesar la ruta
+if ($request) {
+    $segments = explode('/', $request);
+    $controller = $segments[0] ?? 'home';
+    $action = $segments[1] ?? 'index';
 
-</html>
+    $controllerFile = "../app/controllers/" . ucfirst($controller) . "Controller.php";
+
+    if (file_exists($controllerFile)) {
+        require_once $controllerFile;
+
+        $className = ucfirst($controller) . "Controller";
+        $controllerObject = new $className();
+
+        if (method_exists($controllerObject, $action)) {
+            $controllerObject->$action();
+        } else {
+            echo "Acción no encontrada.";
+        }
+    } else {
+        echo "Controlador no encontrado.";
+    }
+} else {
+    echo "Bienvenido a la aplicación CRUD de Alojamientos.";
+}

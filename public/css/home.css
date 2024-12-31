@@ -1,0 +1,73 @@
+/*CONTAINER PRINCIPAL*/
+.central-container {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../../assets/img/main-img.avif');
+    max-width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8);
+}
+
+/*NAVBAR*/
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.navbar ul li a {
+    transition: color 0.3s ease, text-decoration-color 0.3s ease;
+    color: white;
+    text-decoration-color: transparent;
+}
+
+.navbar ul li a:hover {
+    color: orange;
+    text-decoration: underline;
+    text-decoration-color: orange;
+    text-decoration-thickness: 3px;
+}
+
+/*TITULO Y SUBTITULO*/
+.title-text {
+    font-size: 6em;
+    font-weight: bold;
+    line-height: 0.9em;
+}
+
+.subtitle-text {
+    font-size: 1.2em;
+}
+
+.line-separator {
+    background-color: #e29954;
+    height: 5px;
+}
+
+@media(max-width: 950px) {
+
+    /*TITULO Y SUBTITULO*/
+    .title-text {
+        font-size: 4em;
+    }
+
+    .subtitle-text {
+        font-size: 1.1em;
+    }
+}
+
+@media(max-width: 440px) {
+
+    /*TITULO Y SUBTITULO*/
+    .title-text {
+        font-size: 2.8em;
+    }
+
+    .subtitle-text {
+        font-size: 1em;
+    }
+}

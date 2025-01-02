@@ -5,53 +5,86 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alojamientos App</title>
-
-    <!--BOOTSTRAP CSS-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <!-- home.css-->
-    <link href="../../public/css/home.css" rel="stylesheet">
-
-    <!-- Estilos google fonts-->
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");  
-    </style>
 </head>
 
-<body style="background-color: #434C5E; color: #D8DEE9; font-family: 'Open Sans', serif">
+<body style="font-family: 'Open Sans', serif">
 
-    <main class="central-container d-flex flex-column justify-content-center align-items-center">
+    <?php require "./partials/navbar.php"; ?> <!--NAVBAR-->
 
-        <!-- NAVBAR -->
-        <nav class="navbar navbar-expand bg-transparent p-0">
-            <div class="container-fluid justify-content-center justify-content-sm-end ">
-                <ul class="navbar-nav d-flex flex-row gap-4">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Contacto</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Reserva Online</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white">Ofertas</a>
-                    </li>
-                </ul>
+    <main>
+
+        <div class="central-container d-flex flex-column justify-content-center align-items-center">
+
+            <!--SECTION de contenido-->
+            <section class="container d-flex flex-column">
+                <div>
+                    <p class="title-text text-white text-center">Encuentra el descanso que mereces</p>
+                    <p class="subtitle-text text-white text-center">Escoge entre alojamientos en lugares únicos, ideales
+                        para desconectar del día a día.</p>
+                </div>
+                <div class="line-separator my-4 text-black">.</div>
+                <div class="text-center">
+                    <button class="btn btn-dark border" type="button" onclick="location.href='#cards-presentation'">Ver
+                        alojamientos</button>
+                </div>
+            </section>
+        </div>
+
+        <!--CONTENEDOR de cards-->
+        <div id="cards-presentation"
+            class="container h-50 d-flex justify-content-center align-items-center gap-2 bg-white p-0">
+
+            <!--Card-->
+            <div class="card text-bg-dark d-none d-md-block">
+                <img src="../../public/img/img-card-01.avif" class="card-img" alt="img-card">
+                <div class="card-img-overlay">
+                    <h5 class="card-title">La Costa del Sol</h5>
+                    <p class="card-text"><small>Residencia de alojamiento completo</small></p>
+                </div>
             </div>
-        </nav>
 
-        <!--SECTION de contenido-->
-        <section class="container d-flex flex-column">
-            <div>
-                <p class="title-text text-white text-center">Encuentra el descanso que mereces</p>
-                <p class="subtitle-text text-white text-center">Escoge entre alojamientos en lugares únicos, ideales
-                    para desconectar del día a día.</p>
+            <!--Card-->
+            <div class="card text-bg-dark d-none d-md-block">
+                <img src="../../public/img/img-card-02.jpg" class="card-img" alt="img-card">
+                <div class="card-img-overlay">
+                    <h5 class="card-title">La paz</h5>
+                    <p class="card-text"><small>Habitación disponible</small></p>
+                </div>
             </div>
-            <div class="line-separator my-4">.</div>
+
+            <!--Card-->
+            <div class="card text-bg-dark d-none d-md-block">
+                <img src="../../public/img/img-card-03.jpg" class="card-img" alt="img-card">
+                <div class="card-img-overlay">
+                    <h5 class="card-title">La Unión</h5>
+                    <p class="card-text"><small>Alojamiento junto al golfo de Fonseca</small></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container d-flex justify-content-center my-5">
+            <div class="text-white bg-dark" style="height:1px; width:100%;">.</div>
+        </div>
+
+        <!--Seccion de alojamientos ingresados-->
+        <section class="container my-4">
+
+            <!--Barra de busqueda-->
             <div class="text-center">
-                <button class="btn btn-dark border" type="button">Ver alojamientos</button>
+
+                <h1>Explora casas y hoteles, encuentra el lugar ideal</h1>
+                <form class="form-buscar d-flex gap-2 mt-4" action="">
+                    <input type="search" name="buscarAlojamiento" class="form-control rounded-pill"
+                        placeholder="Busca un alojamiento...">
+
+                    <button class="btn btn-light rounded-circle" type="submit" style="background:orange;">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form> 
             </div>
+
         </section>
+
     </main>
 
 
@@ -63,5 +96,3 @@
 </body>
 
 </html>
-
-

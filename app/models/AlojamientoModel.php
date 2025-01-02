@@ -1,5 +1,5 @@
 <?php
-require_once dirname(APP_ROOT) . DIRECTORY_SEPARATOR . "config" . DIRECTORY_SEPARATOR . "Database.php";
+require_once "config/Database.php";
 
 class AlojamientoModel
 {

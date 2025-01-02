@@ -1,8 +1,5 @@
 <?php
 
-// Definir constante global para rutas absolutas
-define('APP_ROOT', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR);
-
 // Ruta solicitada (e.g., /usuario/login)
 $request = $_GET['url'] ?? '';
 
@@ -12,7 +9,7 @@ if ($request) {
     $controller = $segments[0] ?? 'home';
     $action = $segments[1] ?? 'index';
 
-    $controllerFile = "../app/controllers/" . ucfirst($controller) . "Controller.php";
+    $controllerFile = "app/controllers/" . ucfirst($controller) . "Controller.php";
 
     if (file_exists($controllerFile)) {
         require_once $controllerFile;
@@ -29,5 +26,6 @@ if ($request) {
         echo "Controlador no encontrado.";
     }
 } else {
-    echo "Bienvenido a Alojamientos App.";
+    header('Location: home/index/');
+    exit();
 }

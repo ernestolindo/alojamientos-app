@@ -1,5 +1,5 @@
 <?php
-require_once APP_ROOT . "models/AlojamientoModel.php";
+require_once "app/models/AlojamientoModel.php";
 
 class HomeController
 {
@@ -10,11 +10,10 @@ class HomeController
         // Obtener todos los alojamientos
         $alojamientos = $model->readAlojamientos();
 
-        echo "<pre>";
-        print_r($alojamientos);  // Ver los alojamientos en el navegador
-        echo "</pre>";
+        // echo "<pre>";
+        // print_r($alojamientos);  // Ver los alojamientos en el navegador
+        // echo "</pre>";
 
-        // Enviar los datos a la vista
-        // require_once "../app/views/home.php";
+        require_once "app/views/home.php";
     }
 }

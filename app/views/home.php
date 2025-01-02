@@ -9,7 +9,7 @@
 
 <body style="font-family: 'Open Sans', serif">
 
-    <?php require "./partials/navbar.php"; ?> <!--NAVBAR-->
+    <?php require "./app/views/partials/navbar.php"; ?> <!--NAVBAR-->
 
     <main>
 
@@ -51,15 +51,6 @@
                     <p class="card-text"><small>Habitación disponible</small></p>
                 </div>
             </div>
-
-            <!--Card-->
-            <div class="card text-bg-dark d-none d-md-block">
-                <img src="../../public/img/img-card-03.jpg" class="card-img" alt="img-card">
-                <div class="card-img-overlay">
-                    <h5 class="card-title">La Unión</h5>
-                    <p class="card-text"><small>Alojamiento junto al golfo de Fonseca</small></p>
-                </div>
-            </div>
         </div>
 
         <div class="container d-flex justify-content-center my-5">
@@ -80,7 +71,7 @@
                     <button class="btn btn-light rounded-circle" type="submit" style="background:orange;">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
-                </form> 
+                </form>
             </div>
 
         </section>

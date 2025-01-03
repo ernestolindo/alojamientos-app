@@ -9,7 +9,7 @@
 
 <body style="font-family: 'Open Sans', serif">
 
-    <?php require "./partials/navbar.php"; ?> <!--NAVBAR-->
+    <?php require "app/views/partials/navbar.php"; ?> <!--NAVBAR-->
 
     <main>
 

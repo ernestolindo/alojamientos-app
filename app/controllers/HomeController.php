@@ -9,11 +9,6 @@ class HomeController
 
         // Obtener todos los alojamientos
         $alojamientos = $model->readAlojamientos();
-
-        // echo "<pre>";
-        // print_r($alojamientos);  // Ver los alojamientos en el navegador
-        // echo "</pre>";
-
         require_once "app/views/home.php";
     }
 }

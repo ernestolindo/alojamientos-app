@@ -27,6 +27,9 @@ SET time_zone = "+00:00";
 -- Table structure for table `alojamientos`
 --
 
+CREATE DATABASE alojamientos_app;
+USE alojamientos_app;
+
 CREATE TABLE `alojamientos` (
   `id` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
@@ -45,6 +48,7 @@ INSERT INTO `alojamientos` (`id`, `nombre`, `descripcion`, `direccion`, `precio`
 (2, 'Hostal Aurora', 'Alojamiento económico con excelente ubicación.', 'Calle Estrella 45', 30.00, 'aurora.jpg'),
 (3, 'Casa de Playa', 'Casa privada frente al mar, ideal para vacaciones familiares.', 'Carretera Costera KM 12', 250.00, 'playa.jpg');
 
+select * from alojamientos;
 -- --------------------------------------------------------
 
 --
@@ -67,6 +71,8 @@ INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `contrasenia`, `tipo`) VALUES
 (1, 'Juan Pérez', 'juan.perez@example.com', '123456', 'usuario'),
 (2, 'Ana López', 'ana.lopez@example.com', 'password123', 'usuario'),
 (3, 'Admin', 'admin@example.com', 'adminpass', 'admin');
+
+SELECT * FROM usuarios;
 
 -- --------------------------------------------------------
 

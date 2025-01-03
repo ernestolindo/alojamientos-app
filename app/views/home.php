@@ -80,7 +80,30 @@
                     <button class="btn btn-light rounded-circle" type="submit" style="background:orange;">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
-                </form> 
+                </form>
+            </div>
+
+            <!--CARDS desde la DB-->
+            <div id="cards-presentation"
+                class="container h-50 d-flex justify-content-center align-items-center gap-2 bg-white p-0 flex-wrap">
+
+                <?php if (!empty($alojamientos)): ?>
+                    <?php foreach ($alojamientos as $alojamiento): ?>
+                        <div class="card text-bg-dark" style="width: 18rem;">
+                            <img src="<?= htmlspecialchars($alojamiento['imagen']); ?>" class="card-img-top" alt="Imagen del alojamiento">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= htmlspecialchars($alojamiento['nombre']); ?></h5>
+                                <p class="card-text"><?= htmlspecialchars($alojamiento['descripcion']); ?></p>
+                                <p class="card-text"><strong>Dirección:</strong> <?= htmlspecialchars($alojamiento['direccion']); ?></p>
+                                <p class="card-text"><strong>Precio:</strong> $<?= htmlspecialchars($alojamiento['precio']); ?></p>
+                                <a href="detalles.php?id=<?= $alojamiento['id']; ?>" class="btn btn-light">Ver más</a>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p>No hay alojamientos disponibles.</p>
+                <?php endif; ?>
+
             </div>
 
         </section>

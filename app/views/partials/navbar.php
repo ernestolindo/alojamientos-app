@@ -91,8 +91,8 @@
                                 #NombreUser
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Registrate</a></li>
-                                <li><a class="dropdown-item" href="#">Iniciar Sesión</a></li>
+                                <li><a class="dropdown-item" href="../../auth/register/">Registrate</a></li>
+                                <li><a class="dropdown-item" href="../../auth/login/">Iniciar Sesión</a></li>
                             </ul>
                         </div>
                     </li>

@@ -34,13 +34,12 @@
 }
 
 /* Cards de alojamiento de DB */
-.img-card-alojamiento {
-    position: relative;
+.img-alojamiento {
+    height: 235px !important;
 }
+
 .heart-btn {
-    position:absolute;
-    left:310px;
-    top:-32px;
+
     transition: 0.3s ease;
     cursor: pointer;
     color: #e9dbdb !important;
@@ -49,6 +48,7 @@
     transform: scale(1.1);
     transition: 0.3s ease;
 }
+
 
 @media(max-width: 950px) {
 

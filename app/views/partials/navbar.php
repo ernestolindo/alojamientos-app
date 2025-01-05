@@ -109,7 +109,7 @@
                     </a>
 
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item text-black" href="#">+ Añadir alojamiento</a></li>
+                        <li><a class="dropdown-item text-black" href="app/views/create_alojamiento.php" target="_blank">+ Añadir alojamiento</a></li>
                     </ul>
                 </div>
 

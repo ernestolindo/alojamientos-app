@@ -13,16 +13,19 @@ class AlojamientoModel
     }
 
     // Función para agregar un alojamiento
-    public function createAlojamiento($nombre, $descripcion, $direccion, $precio, $imagen)
+    public function createAlojamiento($nombre, $descripcion, $direccion, $precio, $imagen, $minpersona, $maxpersona, $departamento)
     {
-        $query = "INSERT INTO alojamientos (nombre, descripcion, direccion, precio, imagen) 
-                  VALUES (:nombre, :descripcion, :direccion, :precio, :imagen)";
+        $query = "INSERT INTO alojamientos (nombre, descripcion, direccion, precio, imagen, minpersona, maxpersona, departamento) 
+                  VALUES (:nombre, :descripcion, :direccion, :precio, :imagen, :minpersona, :maxpersona, :departamento)";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":nombre", $nombre);
         $stmt->bindParam(":descripcion", $descripcion);
         $stmt->bindParam(":direccion", $direccion);
         $stmt->bindParam(":precio", $precio);
         $stmt->bindParam(":imagen", $imagen);
+        $stmt->bindParam(":minpersona", $minpersona);
+        $stmt->bindParam(":maxpersona", $maxpersona);
+        $stmt->bindParam(":departamento", $departamento);
         return $stmt->execute();
     }
 
@@ -47,11 +50,10 @@ class AlojamientoModel
 
 
     // Función para editar un alojamiento
-    public function editAlojamiento($id, $nombre, $descripcion, $direccion, $precio, $imagen)
+    public function editAlojamiento($id, $nombre, $descripcion, $direccion, $precio, $imagen, $minpersona, $maxpersona, $departamento)
     {
         $query = "UPDATE alojamientos 
-                  SET nombre = :nombre, descripcion = :descripcion, direccion = :direccion, 
-                      precio = :precio, imagen = :imagen
+                  SET nombre = :nombre, descripcion = :descripcion, direccion = :direccion, precio = :precio, imagen = :imagen, minpersona = :minpersona, maxpersona = :maxpersona, departamento = :departamento
                   WHERE id = :id";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":id", $id);
@@ -60,6 +62,9 @@ class AlojamientoModel
         $stmt->bindParam(":direccion", $direccion);
         $stmt->bindParam(":precio", $precio);
         $stmt->bindParam(":imagen", $imagen);
+        $stmt->bindParam(":minpersona", $minpersona);
+        $stmt->bindParam(":maxpersona", $maxpersona);
+        $stmt->bindParam(":departamento", $departamento);
         return $stmt->execute();
     }
 

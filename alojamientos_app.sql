@@ -20,7 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `alojamientos_app`
 --
-
 -- --------------------------------------------------------
 
 --
@@ -36,17 +35,21 @@ CREATE TABLE `alojamientos` (
   `descripcion` text NOT NULL,
   `direccion` varchar(255) NOT NULL,
   `precio` decimal(10,2) NOT NULL,
-  `imagen` varchar(255) DEFAULT NULL
+  `imagen` varchar(255) DEFAULT NULL,
+  `minpersona` INT(10) NOT NULL,
+  `maxpersona` INT(10) NOT NULL,
+  `departamento` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `alojamientos`
 --
 
-INSERT INTO `alojamientos` (`id`, `nombre`, `descripcion`, `direccion`, `precio`, `imagen`) VALUES
-(1, 'Hotel Paradise', 'Un hotel de lujo con todas las comodidades modernas.', 'Avenida Siempre Viva 123', 120.50, 'paradise.jpg'),
-(2, 'Hostal Aurora', 'Alojamiento económico con excelente ubicación.', 'Calle Estrella 45', 30.00, 'aurora.jpg'),
-(3, 'Casa de Playa', 'Casa privada frente al mar, ideal para vacaciones familiares.', 'Carretera Costera KM 12', 250.00, 'playa.jpg');
+INSERT INTO `alojamientos` (`id`, `nombre`, `descripcion`, `direccion`, `precio`, `imagen`, `minpersona`, `maxpersona`, `departamento`) VALUES
+(1, 'Hotel Paradise', 'Un hotel de lujo con todas las comodidades modernas.', 'Avenida Siempre Viva 123', 120.50, '../../public/img/hotel-paradaise.jpg', '3', '10', 'la libertad'),
+(2, 'Hostal Aurora', 'Alojamiento económico con excelente ubicación.', 'Calle Estrella 45', 30.00, '../../public/img/hotel-aurora.jpg', '2', '8', 'la paz'),
+(3, 'Casa de Playa', 'Casa privada frente al mar, ideal para vacaciones familiares.', 'Carretera Costera KM 12', 250.00, '../../public/img/casa-playa.jpg', '2', '15', 'sonsonate'),
+(4, 'Casa de campo', 'Casa en un ambiente primaveral para disfrutar lo hermoso de la naturaleza.', 'ciudad vieja, casa de campo, suchitoto', 175.00, '../../public/img/casa-campo.jpg', '1', '10', 'suchitoto');
 
 select * from alojamientos;
 -- --------------------------------------------------------

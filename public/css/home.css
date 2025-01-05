@@ -12,39 +12,6 @@
     top:65PX;
 }
 
-/*MAIN-NAVBAR*/
-.navbars {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 10;
-} 
-
-.main-navbar ul li {
-    transition: 0.3s ease;
-    color: #000;
-}
-
-.main-navbar ul li:hover {
-    background-color: rgba(227, 228, 223, 0.562) !important;
-    transition: 0.3s ease;
-    border-radius: 20px;
-}
-
-/*SEC-NAVBAR*/
-.sec-navbar ul li a {
-    transition: 0.3s ease;
-    color: #fff;
-}
-
-.sec-navbar ul li a:hover {
-    background-color: rgba(227, 228, 223, 0.37) !important;
-    transition: 0.3s ease;
-    color: #fff !important;
-    border-radius: 20px;
-}
-
 /*TITULO Y SUBTITULO*/
 .title-text {
     font-size: 5em;
@@ -61,14 +28,26 @@
     height: 5px;
 }
 
-/* Contenedor de CARDS */
-.card-img-overlay {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0));
-}
-
 /* Form Buscar */
 .form-buscar input {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Cards de alojamiento de DB */
+.img-card-alojamiento {
+    position: relative;
+}
+.heart-btn {
+    position:absolute;
+    left:310px;
+    top:-32px;
+    transition: 0.3s ease;
+    cursor: pointer;
+    color: #e9dbdb !important;
+}
+.heart-btn .fa-heart:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease;
 }
 
 @media(max-width: 950px) {

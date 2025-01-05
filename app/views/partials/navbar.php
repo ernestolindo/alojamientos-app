@@ -13,9 +13,6 @@
     <!--FONTAWESOME-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <!-- home.css-->
-    <link href="../../public/css/home.css" rel="stylesheet">
-
     <!-- Estilos google fonts-->
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
@@ -43,12 +40,12 @@
         }
 
         /*SEC-NAVBAR*/
-        .sec-navbar ul li a {
+        .sec-navbar .navbar-nav .nav-item a {
             transition: 0.3s ease;
             color: #fff;
         }
 
-        .sec-navbar ul li a:hover {
+        .sec-navbar .navbar-nav .nav-item a:hover {
             background-color: rgba(227, 228, 223, 0.37) !important;
             transition: 0.3s ease;
             color: #fff !important;
@@ -60,7 +57,7 @@
             .logo-title a,
             .main-navbar ul li,
             .main-navbar button,
-            .sec-navbar ul li a {
+            .sec-navbar .navbar-nav li a {
                 font-size: 0.9em !important;
             }
         }
@@ -102,7 +99,19 @@
 
         <!-- NAVBAR SECUNDARIO -->
         <nav class="sec-navbar navbar navbar-expand bg-dark p-1">
-            <div class="container-fluid justify-content-center justify-content-sm-end">
+            <div class="container-fluid justify-content-center justify-content-sm-between">
+
+                <!--Boton que solo debe aparecer al ADMIN-->
+                <div class="dropdown">
+                    <a class="btn dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                        Admin
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item text-black" href="#">+ Añadir alojamiento</a></li>
+                    </ul>
+                </div>
 
                 <!--LISTA NAV-->
                 <ul class="navbar-nav">

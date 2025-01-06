@@ -26,6 +26,7 @@ class AlojamientoController
                 $nombreImagen = basename($imagen['name']);
                 $rutaDestino = $destino . $nombreImagen;                  //Destino para que cada imagen se guarde en uploads
                 $rutaDestinoDB = "../../public/uploads/" . $nombreImagen; //Destino que sera guardado en la DB para que aparezcan las imagenes
+                $rutaDestinoDetalle = "../public/uploads/" . $nombreImagen; //Destino que sera guardado en la DB para que aparezcan las imagenes
 
                 // Mover el archivo a la carpeta "uploads"
                 if (move_uploaded_file($imagen['tmp_name'], $rutaDestino)) {
@@ -48,6 +49,28 @@ class AlojamientoController
             }
         } else {
             require_once 'app/views/create_alojamiento.php';
+        }
+    }
+
+    public function getAlojamiento()
+    {
+        // Verificacion de recibimiento del ID
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+
+            // Obtencion de los datos del alojamiento desde el modelo
+            $alojamientoModel = new AlojamientoModel();
+            $alojamiento = $alojamientoModel->obtenerAlojamientoPorId($id);
+
+            if (!$alojamiento) {
+                echo "El alojamiento no existe.";
+                return;
+            }
+
+            // Cargar la vista con los detalles del alojamiento
+            require_once 'app/views/detalles_alojamiento.php';
+        } else {
+            echo "ID no proporcionado.";
         }
     }
 }

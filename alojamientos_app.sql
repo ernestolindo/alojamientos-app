@@ -41,6 +41,7 @@ CREATE TABLE `alojamientos` (
   `departamento` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+select * from alojamientos;
 --
 -- Dumping data for table `alojamientos`
 --
@@ -51,7 +52,6 @@ INSERT INTO `alojamientos` (`id`, `nombre`, `descripcion`, `direccion`, `precio`
 (3, 'Casa de Playa', 'Casa privada frente al mar, ideal para vacaciones familiares.', 'Carretera Costera KM 12', 250.00, '../../public/img/casa-playa.jpg', '2', '15', 'sonsonate'),
 (4, 'Casa de campo', 'Casa en un ambiente primaveral para disfrutar lo hermoso de la naturaleza.', 'ciudad vieja, casa de campo, suchitoto', 175.00, '../../public/img/casa-campo.jpg', '1', '10', 'suchitoto');
 
-select * from alojamientos;
 -- --------------------------------------------------------
 
 --
@@ -130,7 +130,7 @@ ALTER TABLE `usuarios_alojamientos`
 -- AUTO_INCREMENT for table `alojamientos`
 --
 ALTER TABLE `alojamientos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `usuarios`

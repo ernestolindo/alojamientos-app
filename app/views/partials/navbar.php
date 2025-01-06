@@ -73,7 +73,7 @@
 
                 <div class="logo-title d-flex justify-content-center align-items-center gap-2">
                     <i class="fa-solid fa-hotel fs-4" style="color:orange;"></i>
-                    <a class="navbar-brand" href="./home.php">Alojamientos</a>
+                    <a class="navbar-brand" href="../../home/index/">Alojamientos</a>
                 </div>
 
                 <!--LISTA NAV-->
@@ -99,30 +99,32 @@
 
         <!-- NAVBAR SECUNDARIO -->
         <nav class="sec-navbar navbar navbar-expand bg-dark p-1">
-            <div class="container-fluid justify-content-center justify-content-sm-between">
+            <div class="container-fluid justify-content-between">
 
                 <!--Boton que solo debe aparecer al ADMIN-->
                 <div class="dropdown">
-                    <a class="btn dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-solid fa-screwdriver-wrench"></i>
-                        Admin
+                    <a class="btn dropdown-toggle text-white d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="d-flex align-items-center justify-content-center gap-2">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                            <p class="m-0 d-none d-sm-block">Admin</p>
+                        </div>
                     </a>
 
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item text-black" href="app/views/create_alojamiento.php" target="_blank">+ Añadir alojamiento</a></li>
+                        <li><a class="dropdown-item text-black" href="../../Alojamiento/create/">+ Añadir alojamiento</a></li>
                     </ul>
                 </div>
 
                 <!--LISTA NAV-->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link px-4 text-white" href="#">Contacto</a>
+                        <a class="nav-link px-2 px-sm-4 text-white" href="#">Contacto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-4 text-white" href="#">Reservación</a>
+                        <a class="nav-link px-2 px-sm-4 text-white" href="#">Reservación</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-4 text-white" href="#">Ofertas</a>
+                        <a class="nav-link px-2 px-sm-4 text-white" href="#">Ofertas</a>
                     </li>
                 </ul>
             </div>

@@ -73,7 +73,7 @@
 
                 <div class="logo-title d-flex justify-content-center align-items-center gap-2">
                     <i class="fa-solid fa-hotel fs-4" style="color:orange;"></i>
-                    <a class="navbar-brand" href="../../home/index/">Alojamientos</a>
+                    <a class="navbar-brand" href="/Alojamientos_app_PHP/home/index/">Alojamientos</a>
                 </div>
 
                 <!--LISTA NAV-->
@@ -88,8 +88,8 @@
                                 #NombreUser
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="../../auth/register/">Registrate</a></li>
-                                <li><a class="dropdown-item" href="../../auth/login/">Iniciar Sesión</a></li>
+                                <li><a class="dropdown-item" href="/Alojamientos_app_PHP/auth/register/">Registrate</a></li>
+                                <li><a class="dropdown-item" href="/Alojamientos_app_PHP/auth/login/">Iniciar Sesión</a></li>
                             </ul>
                         </div>
                     </li>
@@ -111,7 +111,7 @@
                     </a>
 
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item text-black" href="../../Alojamiento/create/">+ Añadir alojamiento</a></li>
+                        <li><a class="dropdown-item text-black" href="/Alojamientos_app_PHP/Alojamiento/create/">+ Añadir alojamiento</a></li>
                     </ul>
                 </div>
 

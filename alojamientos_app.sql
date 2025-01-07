@@ -47,10 +47,10 @@ select * from alojamientos;
 --
 
 INSERT INTO `alojamientos` (`id`, `nombre`, `descripcion`, `direccion`, `precio`, `imagen`, `minpersona`, `maxpersona`, `departamento`) VALUES
-(1, 'Hotel Paradise', 'Un hotel de lujo con todas las comodidades modernas.', 'Avenida Siempre Viva 123', 120.50, '../../public/img/hotel-paradaise.jpg', '3', '10', 'la libertad'),
-(2, 'Hostal Aurora', 'Alojamiento económico con excelente ubicación.', 'Calle Estrella 45', 30.00, '../../public/img/hotel-aurora.jpg', '2', '8', 'la paz'),
-(3, 'Casa de Playa', 'Casa privada frente al mar, ideal para vacaciones familiares.', 'Carretera Costera KM 12', 250.00, '../../public/img/casa-playa.jpg', '2', '15', 'sonsonate'),
-(4, 'Casa de campo', 'Casa en un ambiente primaveral para disfrutar lo hermoso de la naturaleza.', 'ciudad vieja, casa de campo, suchitoto', 175.00, '../../public/img/casa-campo.jpg', '1', '10', 'suchitoto');
+(1, 'Hotel Paradise', 'Un hotel de lujo con todas las comodidades modernas.', 'Avenida Siempre Viva 123', 120.50, '/Alojamientos_app_PHP/public/uploads/hotel-paradaise.jpg', '3', '10', 'la libertad'),
+(2, 'Hostal Aurora', 'Alojamiento económico con excelente ubicación.', 'Calle Estrella 45', 30.00, '/Alojamientos_app_PHP/public/uploads/hotel-aurora.jpg', '2', '8', 'la paz'),
+(3, 'Casa de Playa', 'Casa privada frente al mar, ideal para vacaciones familiares.', 'Carretera Costera KM 12', 250.00, '/Alojamientos_app_PHP/public/uploads/casa-playa.jpg', '2', '15', 'sonsonate'),
+(4, 'Casa de campo', 'Casa en un ambiente primaveral para disfrutar lo hermoso de la naturaleza.', 'ciudad vieja, casa de campo, suchitoto', 175.00, '/Alojamientos_app_PHP/public/uploads/casa-campo.jpg', '1', '10', 'suchitoto');
 
 -- --------------------------------------------------------
 

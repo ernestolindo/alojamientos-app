@@ -44,7 +44,7 @@ class AuthController
                 $_SESSION['nombre'] = $usuario['nombre'];
                 $_SESSION['tipo'] = $usuario['tipo'];
 
-                header("Location: ../../home/index/");
+                header("Location: /Alojamientos_app_PHP/home/index/");
                 exit();
             } else {
                 echo "Credenciales incorrectas.";

@@ -14,7 +14,7 @@
     <main class="container" style="margin-top: 150px;">
         <h2 class="text-center mb-4">Registrar Alojamiento</h2>
 
-        <form action="Alojamiento/create" method="POST" enctype="multipart/form-data" class="row g-3">
+        <form action="/Alojamientos_app_PHP/Alojamiento/create_crud" method="POST" enctype="multipart/form-data" class="row g-3">
             <!-- Nombre -->
             <div class="col-md-6">
                 <label for="nombre" class="form-label">Nombre del Alojamiento</label>

@@ -12,19 +12,30 @@
 
     <?php require "app/views/partials/navbar.php"; ?> <!-- NAVBAR -->
 
-    <main class="container" style="margin-top: 100px;">
-        <h2 class="text-center mb-4">Detalles del Alojamiento</h2>
+    <main class="container" style="margin-top: 150px;">
+        <div class="row align-items-center">
+            <!-- imagen -->
+            <div class="col-lg-4 text-center mb-3">
+                <img src="<?= htmlspecialchars($alojamiento['imagen']); ?>" class="img-fluid rounded" alt="<?= htmlspecialchars($alojamiento['nombre']); ?>" style="height: 300px; object-fit: cover;">
+            </div>
 
-        <div class="card">
-            <img src="<?= htmlspecialchars($alojamiento['imagen']); ?>" class="card-img-top" alt="<?= htmlspecialchars($alojamiento['nombre']); ?>" style="height: 300px; object-fit: cover;">
-            <div class="card-body">
-                <h5 class="card-title"><?= htmlspecialchars($alojamiento['nombre']); ?></h5>
-                <p class="card-text"><strong>Descripción:</strong> <?= htmlspecialchars($alojamiento['descripcion']); ?></p>
-                <p class="card-text"><strong>Dirección:</strong> <?= htmlspecialchars($alojamiento['direccion']); ?></p>
-                <p class="card-text"><strong>Precio por noche:</strong> $<?= htmlspecialchars($alojamiento['precio']); ?></p>
-                <p class="card-text"><strong>Departamento y/o ciudad:</strong> <?= htmlspecialchars($alojamiento['departamento']); ?></p>
-                <p class="card-text"><strong>Capacidad:</strong> De <?= htmlspecialchars($alojamiento['minpersona']); ?> a <?= htmlspecialchars($alojamiento['maxpersona']); ?> personas.</p>
-                <a href="/Alojamientos_app_PHP/home/index/" class="btn btn-primary">Volver al inicio</a>
+            <!-- detalles -->
+            <div class="col-lg-8 d-flex flex-column justify-content-center">
+                <div class="card-body text-center text-lg-start">
+                    <strong class="card-title fs-4 text-capitalize"><?= htmlspecialchars($alojamiento['nombre']); ?></strong>
+                    <p class="card-text mt-3"><strong>Descripción:</strong> <?= htmlspecialchars($alojamiento['descripcion']); ?></p>
+                    <p class="card-text text-capitalize"><strong>Dirección:</strong> <?= htmlspecialchars($alojamiento['direccion']); ?></p>
+                    <p class="card-text"><strong>Precio por noche:</strong> $<?= htmlspecialchars($alojamiento['precio']); ?></p>
+                    <p class="card-text text-capitalize"><strong>Departamento y/o ciudad:</strong> <?= htmlspecialchars($alojamiento['departamento']); ?></p>
+                    <p class="card-text"><strong>Capacidad:</strong> De <?= htmlspecialchars($alojamiento['minpersona']); ?> a <?= htmlspecialchars($alojamiento['maxpersona']); ?> personas.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Boton de vuelta a inicio -->
+        <div class="row my-4">
+            <div class="col text-center">
+                <a href="/Alojamientos_app_PHP/home/index/" class="btn btn-light text-white" style="background-color: #ebaf41 !important;">Volver al inicio</a>
             </div>
         </div>
     </main>

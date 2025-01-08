@@ -30,7 +30,7 @@ class AlojamientoController
 
                 // Definir la carpeta de destino para las imágenes a "uploads"
                 $rutaBase = '/Alojamientos_app_PHP/public/uploads/';
-                $nombreImagen = $_GET['id'] . "_" . basename($imagen['name']);
+                $nombreImagen = basename($imagen['name']);
                 $rutaDestino = "public/uploads/" . $nombreImagen; // Destino que será guardado en la DB para que aparezcan las imágenes
                 $rutaDestinoDB = $rutaBase . $nombreImagen;       // Destino para que cada imagen se guarde en uploads
 
@@ -81,7 +81,7 @@ class AlojamientoController
 
     public function update_crud()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
 
             // Instancia del modelo
             $alojamiento = new AlojamientoModel();
@@ -135,6 +135,34 @@ class AlojamientoController
                 } else {
                     echo "Hubo un error al guardar el alojamiento.";
                 }
+            }
+        } else {
+            echo "Acceso no permitido.";
+        }
+    }
+
+    public function delete_crud()
+    {
+        // GET para obtener al alojamiento por su ID
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['idDelete'])) {
+            $id = $_POST['idDelete'];
+
+            // Validar que el ID sea un número entero positivo
+            if (filter_var($id, FILTER_VALIDATE_INT)) {
+
+                //Ejecucion de la funcion del modelo para eliminar alojamientos
+                $alojamientoModel = new AlojamientoModel();
+                $resultado = $alojamientoModel->deleteAlojamiento($id);
+
+                if ($resultado) {
+                    header('Location: /Alojamientos_app_PHP/home/index/');
+                    exit();
+
+                } else {
+                    echo "Hubo un error al intentar eliminar el alojamiento.";
+                }
+            } else {
+                echo "ID inválido.";
             }
         } else {
             echo "Acceso no permitido.";

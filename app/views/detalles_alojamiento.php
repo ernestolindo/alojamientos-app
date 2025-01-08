@@ -37,7 +37,7 @@
             <hr>
 
             <form action="/Alojamientos_app_PHP/Alojamiento/update_crud" method="POST" enctype="multipart/form-data" class="row g-3 mt-3">
-                
+
                 <!-- id -->
                 <input type="text" name="id" value="<?= htmlspecialchars($alojamiento['id']); ?>" hidden>
 
@@ -100,17 +100,45 @@
                     <button type="submit" class="btn btn-light" style="background-color: #a4ff9d !important;">Confirmar Información</button>
                     <a href="/Alojamientos_app_PHP/Alojamiento/getAlojamiento?id=<?= $alojamiento['id']; ?>" class="btn btn-ligth" style="background-color: #ffbd64 !important;">Cancelar</a>
                 </div>
+
+                <hr>
             </form>
         </section>
 
         <!-- Botones -->
         <div class="row mb-4">
             <div class="col text-center mt-3 mt-lg-0">
-                <a href="/Alojamientos_app_PHP/home/index/" class="btn btn-danger text-white">Volver al inicio</a>
-                <button type="button" id="editButton" class="btn btn-success text-white">Editar</button>
+                <a href="/Alojamientos_app_PHP/home/index/" class="btn btn-dark text-white"><i class="fa-solid fa-backward me-1"></i>Volver al inicio</a>
+                <button type="button" id="editButton" class="btn btn-success text-white"><i class="fa-solid fa-pen-to-square me-1"></i>Editar</button>
+                <a href="/Alojamientos_app_PHP/home/index/" class="btn btn-danger text-white" data-bs-target="#modalDelete" data-bs-toggle="modal"> <i class="fa-solid fa-trash me-1"></i>Eliminar</a>
             </div>
         </div>
     </main>
+
+    <!--Modal de eliminacion-->
+    <div class="modal fade" id="modalDelete" aria-hidden="true" aria-labelledby="LabelDelete" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="LabelDelete">Eliminar Alojamiento</h1>
+                </div>
+                <div class="modal-body">
+                    Estas seguro de eliminar este Alojamiento? Ya no podras recuperarlo posteriormente...
+                </div>
+                <div class="modal-footer">
+                    <form action="/Alojamientos_app_PHP/Alojamiento/delete_crud/" method="POST">
+
+                        <!-- id -->
+                        <input type="text" name="idDelete" value="<?= htmlspecialchars($alojamiento['id']); ?>" hidden>
+
+                        <!-- Botones -->
+                        <button type="submit" class="btn btn-success">Confirmar</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- BOOTSTRAP JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -135,10 +163,10 @@
         checkImagen.addEventListener('change', () => {
             if (checkImagen.checked) {
                 inputImagen.disabled = false;
-                imagenValue.value = 1; 
+                imagenValue.value = 1;
             } else {
                 inputImagen.disabled = true;
-                imagenValue.value = "<?= htmlspecialchars($alojamiento['imagen']); ?>"; 
+                imagenValue.value = "<?= htmlspecialchars($alojamiento['imagen']); ?>";
             }
         });
     </script>

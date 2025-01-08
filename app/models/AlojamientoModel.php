@@ -32,9 +32,9 @@ class AlojamientoModel
     // Función para obtener todos los alojamientos
     public function readAlojamientos()
     {
-        $query = "SELECT * FROM alojamientos"; // Consulta SQL
-        $stmt = $this->db->prepare($query); // Preparar la consulta
-        $stmt->execute(); // Ejecutar la consulta
+        $query = "SELECT * FROM alojamientos";  // Consulta SQL
+        $stmt = $this->db->prepare($query);     // Preparar la consulta
+        $stmt->execute();                       // Ejecutar la consulta
         return $stmt->fetchAll(PDO::FETCH_ASSOC); // Devolver los resultados como un arreglo asociativo
     }
 
@@ -47,7 +47,6 @@ class AlojamientoModel
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-
 
     // Función para editar un alojamiento
     public function editAlojamiento($id, $nombre, $descripcion, $direccion, $precio, $imagen, $minpersona, $maxpersona, $departamento)

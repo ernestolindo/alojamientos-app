@@ -83,6 +83,7 @@
                         <div class="dropdown">
                             <button
                                 class="btn dropdown-toggle border rounded-pill d-flex justify-content-center align-items-center gap-2 p-2 px-3 text-black"
+
                                 type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa-solid fa-user"></i>
                                 #NombreUser

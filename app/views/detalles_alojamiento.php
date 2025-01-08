@@ -37,6 +37,10 @@
             <hr>
 
             <form action="/Alojamientos_app_PHP/Alojamiento/update_crud" method="POST" enctype="multipart/form-data" class="row g-3 mt-3">
+                
+                <!-- id -->
+                <input type="text" name="id" value="<?= htmlspecialchars($alojamiento['id']); ?>" hidden>
+
                 <!-- Nombre -->
                 <div class="col-md-6">
                     <label for="nombre" class="form-label">Nombre del Alojamiento</label>
@@ -58,7 +62,7 @@
                 <!-- Precio -->
                 <div class="col-md-4">
                     <label for="precio" class="form-label">Precio por noche (USD)</label>
-                    <input type="number" class="form-control" id="precio" name="precio" value="<?= htmlspecialchars($alojamiento['precio']); ?>" min="1" required>
+                    <input type="text" class="form-control" id="precio" name="precio" value="<?= htmlspecialchars($alojamiento['precio']); ?>" min="1" required>
                 </div>
 
                 <!-- Departamento y/o ciudad -->
@@ -87,7 +91,7 @@
                     </div>
                     <div class="col-md-8">
                         <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*" required>
-                        <input type="text" id="imagenValue" value="1" hidden>
+                        <input type="text" id="imagenValue" name="imgValue" value="1" hidden>
                     </div>
                 </div>
 
@@ -126,7 +130,7 @@
         const inputImagen = document.querySelector('#imagen');
         const imagenValue = document.querySelector('#imagenValue');
 
-        imagenValue.value = 0;
+        imagenValue.value = 1;
 
         checkImagen.addEventListener('change', () => {
             if (checkImagen.checked) {

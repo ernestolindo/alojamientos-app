@@ -48,21 +48,11 @@ class AlojamientoModel
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    // obtener el ID de un alojamiento
-    public function obtenerAlojamientoId()
-    {
-        $query = "SELECT id FROM alojamientos";
-        $stmt = $this->db->prepare($query);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-
-
     // Función para editar un alojamiento
-    public function editAlojamiento($id, $nombre, $descripcion, $direccion, $precio, $minpersona, $maxpersona, $departamento)
+    public function editAlojamiento($id, $nombre, $descripcion, $direccion, $precio, $imagen, $minpersona, $maxpersona, $departamento)
     {
         $query = "UPDATE alojamientos 
-                  SET nombre = :nombre, descripcion = :descripcion, direccion = :direccion, precio = :precio, minpersona = :minpersona, maxpersona = :maxpersona, departamento = :departamento
+                  SET nombre = :nombre, descripcion = :descripcion, direccion = :direccion, precio = :precio, imagen = :imagen, minpersona = :minpersona, maxpersona = :maxpersona, departamento = :departamento
                   WHERE id = :id";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":id", $id);
@@ -70,18 +60,10 @@ class AlojamientoModel
         $stmt->bindParam(":descripcion", $descripcion);
         $stmt->bindParam(":direccion", $direccion);
         $stmt->bindParam(":precio", $precio);
+        $stmt->bindParam(":imagen", $imagen);
         $stmt->bindParam(":minpersona", $minpersona);
         $stmt->bindParam(":maxpersona", $maxpersona);
         $stmt->bindParam(":departamento", $departamento);
-        return $stmt->execute();
-    }
-
-    // Función para editar la imagen
-    public function editImagen($imagen)
-    {
-        $query = "UPDATE alojamientos SET imagen = :imagen WHERE id = :id";
-        $stmt = $this->db->prepare($query);
-        $stmt->bindParam(":imagen", $imagen);
         return $stmt->execute();
     }
 

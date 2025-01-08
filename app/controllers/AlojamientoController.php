@@ -81,13 +81,13 @@ class AlojamientoController
 
     public function update_crud()
     {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+            // Instancia del modelo
             $alojamiento = new AlojamientoModel();
-            $idAlojamiento = $alojamiento->obtenerAlojamientoId();
 
             // Datos del formulario
-            $id = $idAlojamiento;
+            $idAlojamiento = $_POST['id'];
             $nombre = trim($_POST['nombre']);
             $descripcion = trim($_POST['descripcion']);
             $direccion = trim($_POST['direccion']);
@@ -96,47 +96,41 @@ class AlojamientoController
             $minpersona = $_POST['minpersona'];
             $maxpersona = $_POST['maxpersona'];
 
-            if (isset($_POST['checkImage']) && isset($_POST['checkImage']) === 1) {
+            // Si el usuario marcó el checkbox de cambio de imagen
+            if (!empty($_POST['checkImage']) && $_POST['checkImage'] == 1) {
 
                 $imagen = $_FILES['imagen'] ?? null;
 
-                // Procesamiento de la imagen
+                // Validar que se subió una imagen sin errores
                 if ($imagen && $imagen['error'] === 0) {
 
-                    // Definir la carpeta de destino para las imágenes a "uploads"
-                    $rutaBase = '/Alojamientos_app_PHP/public/uploads/';
                     $nombreImagen = basename($imagen['name']);
-                    $rutaDestino = "public/uploads/" . $nombreImagen; // Destino que será guardado en la DB para que aparezcan las imágenes
-                    $rutaDestinoDB = $rutaBase . $nombreImagen;       // Destino para que cada imagen se guarde en uploads
+                    $rutaBase = $_SERVER['DOCUMENT_ROOT'] . '/Alojamientos_app_PHP/public/uploads/';
+                    $rutaDestino = $rutaBase . $nombreImagen;
+                    $rutaDestinoDB = '/Alojamientos_app_PHP/public/uploads/' . $nombreImagen;
 
-                    // Mover el archivo a la carpeta "uploads"
+                    // Mover el archivo al destino
                     if (move_uploaded_file($imagen['tmp_name'], $rutaDestino)) {
+                        $resultado = $alojamiento->editAlojamiento($idAlojamiento, $nombre, $descripcion, $direccion, $precio, $rutaDestinoDB, $minpersona, $maxpersona, $departamento);
 
-                        // Llamada al modelo para guardar el alojamiento y la ruta de la imagen
-                        $alojamiento = new AlojamientoModel();
-                        $resultado = $alojamiento->editAlojamiento($id, $nombre, $descripcion, $direccion, $precio, $minpersona, $maxpersona, $departamento);
-                        $resultadoImg = $alojamiento->editImagen($rutaDestinoDB);
-
-                        if ($resultado && $resultadoImg) { // Si el resultado fue exitoso
-                            header('Location:/Alojamientos_app_PHP/home/index/');
+                        if ($resultado) {
+                            header('Location: /Alojamientos_app_PHP/Alojamiento/getAlojamiento?id=' . $idAlojamiento);
                             exit();
                         } else {
-                            echo "Hubo un error al guardar el alojamiento.";
+                            echo "Hubo un error al guardar los datos o la imagen.";
                         }
                     } else {
-                        echo "Error al mover el archivo.";
+                        echo "Error al mover el archivo de imagen.";
                     }
                 } else {
-                    echo "Error al subir la imagen.";
+                    echo "Error al subir la imagen. Verifica el archivo.";
                 }
-
-                //Si no se checkea el Checkbox de cambio de imagen, solo se llama la funcion que edita los datos
             } else {
-                $alojamiento = new AlojamientoModel();
-                $resultado = $alojamiento->editAlojamiento($id, $nombre, $descripcion, $direccion, $precio, $minpersona, $maxpersona, $departamento);
+                $imagen = $_POST['imgValue'];
+                $resultado = $alojamiento->editAlojamiento($idAlojamiento, $nombre, $descripcion, $direccion, $precio, $imagen, $minpersona, $maxpersona, $departamento);
 
-                if ($resultado) { // Si el resultado fue exitoso
-                    header('Location:/Alojamientos_app_PHP/home/index/');
+                if ($resultado) {
+                    header('Location: /Alojamientos_app_PHP/Alojamiento/getAlojamiento?id=' . $idAlojamiento);
                     exit();
                 } else {
                     echo "Hubo un error al guardar el alojamiento.";

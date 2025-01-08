@@ -16,12 +16,12 @@ class AlojamientoController
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Datos del formulario
-            $nombre = $_POST['nombre'];
-            $descripcion = $_POST['descripcion'];
-            $direccion = $_POST['direccion'];
+            $nombre = trim($_POST['nombre']);
+            $descripcion = trim($_POST['descripcion']);
+            $direccion = trim($_POST['direccion']);
             $precio = $_POST['precio'];
             $imagen = $_FILES['imagen'] ?? null;
-            $departamento = $_POST['departamento'];
+            $departamento = trim($_POST['departamento']);
             $minpersona = $_POST['minpersona'];
             $maxpersona = $_POST['maxpersona'];
 
@@ -30,7 +30,7 @@ class AlojamientoController
 
                 // Definir la carpeta de destino para las imágenes a "uploads"
                 $rutaBase = '/Alojamientos_app_PHP/public/uploads/';
-                $nombreImagen = basename($imagen['name']);
+                $nombreImagen = $_GET['id'] . "_" . basename($imagen['name']);
                 $rutaDestino = "public/uploads/" . $nombreImagen; // Destino que será guardado en la DB para que aparezcan las imágenes
                 $rutaDestinoDB = $rutaBase . $nombreImagen;       // Destino para que cada imagen se guarde en uploads
 
@@ -76,6 +76,74 @@ class AlojamientoController
             require_once 'app/views/detalles_alojamiento.php';
         } else {
             echo "ID no proporcionado.";
+        }
+    }
+
+    public function update_crud()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            $alojamiento = new AlojamientoModel();
+            $idAlojamiento = $alojamiento->obtenerAlojamientoId();
+
+            // Datos del formulario
+            $id = $idAlojamiento;
+            $nombre = trim($_POST['nombre']);
+            $descripcion = trim($_POST['descripcion']);
+            $direccion = trim($_POST['direccion']);
+            $precio = $_POST['precio'];
+            $departamento = trim($_POST['departamento']);
+            $minpersona = $_POST['minpersona'];
+            $maxpersona = $_POST['maxpersona'];
+
+            if (isset($_POST['checkImage']) && isset($_POST['checkImage']) === 1) {
+
+                $imagen = $_FILES['imagen'] ?? null;
+
+                // Procesamiento de la imagen
+                if ($imagen && $imagen['error'] === 0) {
+
+                    // Definir la carpeta de destino para las imágenes a "uploads"
+                    $rutaBase = '/Alojamientos_app_PHP/public/uploads/';
+                    $nombreImagen = basename($imagen['name']);
+                    $rutaDestino = "public/uploads/" . $nombreImagen; // Destino que será guardado en la DB para que aparezcan las imágenes
+                    $rutaDestinoDB = $rutaBase . $nombreImagen;       // Destino para que cada imagen se guarde en uploads
+
+                    // Mover el archivo a la carpeta "uploads"
+                    if (move_uploaded_file($imagen['tmp_name'], $rutaDestino)) {
+
+                        // Llamada al modelo para guardar el alojamiento y la ruta de la imagen
+                        $alojamiento = new AlojamientoModel();
+                        $resultado = $alojamiento->editAlojamiento($id, $nombre, $descripcion, $direccion, $precio, $minpersona, $maxpersona, $departamento);
+                        $resultadoImg = $alojamiento->editImagen($rutaDestinoDB);
+
+                        if ($resultado && $resultadoImg) { // Si el resultado fue exitoso
+                            header('Location:/Alojamientos_app_PHP/home/index/');
+                            exit();
+                        } else {
+                            echo "Hubo un error al guardar el alojamiento.";
+                        }
+                    } else {
+                        echo "Error al mover el archivo.";
+                    }
+                } else {
+                    echo "Error al subir la imagen.";
+                }
+
+                //Si no se checkea el Checkbox de cambio de imagen, solo se llama la funcion que edita los datos
+            } else {
+                $alojamiento = new AlojamientoModel();
+                $resultado = $alojamiento->editAlojamiento($id, $nombre, $descripcion, $direccion, $precio, $minpersona, $maxpersona, $departamento);
+
+                if ($resultado) { // Si el resultado fue exitoso
+                    header('Location:/Alojamientos_app_PHP/home/index/');
+                    exit();
+                } else {
+                    echo "Hubo un error al guardar el alojamiento.";
+                }
+            }
+        } else {
+            echo "Acceso no permitido.";
         }
     }
 }

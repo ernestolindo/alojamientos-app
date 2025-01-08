@@ -58,7 +58,7 @@
                 <?php if (!empty($alojamientos)): ?>
                     <?php foreach ($alojamientos as $alojamiento): ?>
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="card position-relative border-0">
+                            <div class="card position-relative border-0">      
                                 <div class="img-card-alojamiento position-relative">
                                     <a class="text-dark text-decoration-none" href="/Alojamientos_app_PHP/Alojamiento/getAlojamiento?id=<?= $alojamiento['id']; ?>" target="_blank">
                                         <img class="img-alojamiento img-fluid rounded" src="<?= htmlspecialchars($alojamiento['imagen']); ?>"

@@ -25,7 +25,6 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `alojamientos`
 --
-
 CREATE DATABASE alojamientos_app;
 USE alojamientos_app;
 

@@ -64,7 +64,7 @@
             </div>
 
             <!-- Botón -->
-            <div class="col-12 text-center">
+            <div class="col-12 text-center mb-5">
                 <button type="submit" class="btn btn-light" style="background-color: #a4ff9d !important;">Confirmar Información</button>
                 <button type="button" class="btn btn-ligth" style="background-color: #ffbd64 !important;">Volver a inicio</button>
             </div>

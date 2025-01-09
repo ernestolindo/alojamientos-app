@@ -71,6 +71,8 @@
         </form>
     </main>
 
+    <?php require "app/views/partials/footer.php"; ?> <!-- FOOTER -->
+
 
 
     <!--BOOTSTRAP JS-->

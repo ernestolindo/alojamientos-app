@@ -109,11 +109,26 @@
         <div class="row mb-4">
             <div class="col text-center mt-3 mt-lg-0">
                 <a href="/Alojamientos_app_PHP/home/index/" class="btn btn-dark text-white"><i class="fa-solid fa-backward me-1"></i>Volver al inicio</a>
-                <button type="button" id="editButton" class="btn btn-success text-white"><i class="fa-solid fa-pen-to-square me-1"></i>Editar</button>
-                <a href="/Alojamientos_app_PHP/home/index/" class="btn btn-danger text-white" data-bs-target="#modalDelete" data-bs-toggle="modal"> <i class="fa-solid fa-trash me-1"></i>Eliminar</a>
+
+                <?php if (!isset($_SESSION['tipo']) && isset($_SESSION['tipo']) !== "admin" && isset($_SESSION['tipo']) !== "usuario") { ?>
+                    <div class="container mt-3 mb-5 p-4 bg-light rounded shadow-sm">
+                        <p class="text-center">Si deseas agregar alojamientos,</p>
+                        <a class="btn btn-primary btn-lg d-block text-center mb-3" href="/Alojamientos_app_PHP/auth/login/">Inicia sesión en tu cuenta</a>
+                        <p class="text-center">o si aún no tienes una cuenta,</p>
+                        <a class="btn btn-success btn-lg d-block text-center" href="/Alojamientos_app_PHP/auth/register/">¡Regístrate!</a>
+                    </div>
+                <?php } else if (isset($_SESSION['tipo']) !== "admin") { ?>
+                    <a href="#" class="btn btn-danger text-white" data-bs-target="#modalDelete" data-bs-toggle="modal"> <i class="fa-solid fa-trash me-1"></i>Eliminar</a>
+                <?php } else { ?>
+                    <button type="button" id="editButton" class="btn btn-success text-white"><i class="fa-solid fa-pen-to-square me-1"></i>Editar</button>
+                    <a href="/Alojamientos_app_PHP/home/index/" class="btn btn-danger text-white" data-bs-target="#modalDelete" data-bs-toggle="modal"> <i class="fa-solid fa-trash me-1"></i>Eliminar</a>
+                <?php } ?>
             </div>
         </div>
     </main>
+
+    <?php require "app/views/partials/footer.php"; ?> <!-- FOOTER -->
+
 
     <!--Modal de eliminacion-->
     <div class="modal fade" id="modalDelete" aria-hidden="true" aria-labelledby="LabelDelete" tabindex="-1">

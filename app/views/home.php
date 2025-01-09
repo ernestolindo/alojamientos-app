@@ -58,16 +58,20 @@
                 <?php if (!empty($alojamientos)): ?>
                     <?php foreach ($alojamientos as $alojamiento): ?>
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="card position-relative border-0">      
+                            <div class="card position-relative border-0">
                                 <div class="img-card-alojamiento position-relative">
                                     <a class="text-dark text-decoration-none" href="/Alojamientos_app_PHP/Alojamiento/getAlojamiento?id=<?= $alojamiento['id']; ?>" target="_self">
                                         <img class="img-alojamiento img-fluid rounded" src="<?= htmlspecialchars($alojamiento['imagen']); ?>"
                                             alt="Alojamiento <?= htmlspecialchars($alojamiento['nombre']); ?>" style="object-fit: cover; width: 100%; height: 200px;">
                                     </a>
-                                    <button class="heart-btn position-absolute top-0 end-0 m-2 bg-transparent border-0"
-                                        type="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="+Favoritos">
-                                        <i class="fa-solid fa-heart fs-3"></i>
-                                    </button>
+
+                                    <?php if (isset($_SESSION['tipo']) !== "usuario") {
+                                    } else { ?>
+                                        <button class="heart-btn position-absolute top-0 end-0 m-2 bg-transparent border-0"
+                                            type="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="+Favoritos">
+                                            <i class="fa-solid fa-heart fs-3"></i>
+                                        </button>
+                                    <?php } ?>
                                 </div>
                                 <div class="card-body border-0 px-0">
                                     <strong class="text-capitalize d-block"><?= htmlspecialchars($alojamiento['nombre']); ?></strong>
@@ -93,6 +97,8 @@
         </section>
 
     </main>
+
+    <?php require "app/views/partials/footer.php"; ?> <!-- FOOTER -->
 
 
 

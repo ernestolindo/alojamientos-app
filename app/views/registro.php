@@ -33,6 +33,9 @@
 
     </form>
     <script></script>
+
+    <?php require "app/views/partials/footer.php"; ?> <!-- FOOTER -->
+
 </body>
 
 </html>

@@ -70,9 +70,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `contrasenia`, `tipo`) VALUES
-(1, 'Juan Pérez', 'juan.perez@example.com', '123456', 'usuario'),
-(2, 'Ana López', 'ana.lopez@example.com', 'password123', 'usuario'),
-(3, 'Admin', 'admin@example.com', 'adminpass', 'admin');
+(1, 'Admin', 'admin@example.com', 'adminpass', 'admin'),
+(2, 'Juan Pérez', 'juan.perez@example.com', '123456', 'usuario'),
+(3, 'Ana López', 'ana.lopez@example.com', 'password123', 'usuario');
 
 SELECT * FROM usuarios;
 

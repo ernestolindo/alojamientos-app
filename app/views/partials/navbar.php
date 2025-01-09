@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -80,14 +81,12 @@
                 <ul class="navbar-nav">
                     <li>
                         <!--DROPDOWN USER-->
-                        <div class="dropdown">
-                            <button
-                                class="btn dropdown-toggle border rounded-pill d-flex justify-content-center align-items-center gap-2 p-2 px-3 text-black"
+                        <div class="btn-group dropstart">
 
-                                type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-user"></i>
-                                #NombreUser
+                            <button class="btn dropdown-toggle border rounded-pill d-flex justify-content-center align-items-center gap-2 p-2 px-3 text-black" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <?php echo (!isset($_SESSION['usuario_id'])) ? '<i class="fa-solid fa-user fs-5"></i>' : '<i class="fa-solid fa-user"></i>' . $_SESSION['nombre'] ?>
                             </button>
+
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="/Alojamientos_app_PHP/auth/register/">Registrate</a></li>
                                 <li><a class="dropdown-item" href="/Alojamientos_app_PHP/auth/login/">Iniciar Sesión</a></li>
@@ -102,19 +101,32 @@
         <nav class="sec-navbar navbar navbar-expand bg-dark p-1">
             <div class="container-fluid justify-content-between">
 
-                <!--Boton que solo debe aparecer al ADMIN-->
-                <div class="dropdown">
-                    <a class="btn dropdown-toggle text-white d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="d-flex align-items-center justify-content-center gap-2">
-                            <i class="fa-solid fa-screwdriver-wrench"></i>
-                            <p class="m-0 d-none d-sm-block">Admin</p>
-                        </div>
-                    </a>
+                <!--Boton que aparecera al ADMIN o al USUARIO segun la persona logueada-->
+                <?php if (!isset($_SESSION['usuario_id'])) {
+                    echo "<div></div>"; //Si aun no hay sesion iniciada, no se muestra el dropdown
+                } else { ?>
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle text-white d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="d-flex align-items-center justify-content-center gap-2">
 
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item text-black" href="/Alojamientos_app_PHP/Alojamiento/create/">+ Añadir alojamiento</a></li>
-                    </ul>
-                </div>
+                                <?php if ($_SESSION['tipo'] === "admin") { ?>
+                                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                                    <p class="m-0 d-none d-sm-block">Admin</p>;
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item text-black" href="/Alojamientos_app_PHP/Alojamiento/create/">+ Añadir alojamiento</a></li>
+                                    </ul>
+
+                                <?php } else { ?>
+                                    <i class="fa-solid fa-bars"></i>
+                                    <p class="m-0 d-none d-sm-block">Opciones</p>;
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item text-black" href="#">Ver favoritos</a></li>
+                                    </ul>
+                                <?php } ?>
+                            </div>
+                        </a>
+                    </div>
+                <?php } ?>
 
                 <!--LISTA NAV-->
                 <ul class="navbar-nav">

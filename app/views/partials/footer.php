@@ -14,7 +14,7 @@
 
                 <!-- Enlaces -->
                 <div class="col-12 col-md-4 mb-3 d-flex justify-content-center align-items-center">
-                    <h1><i class="fa-solid fa-hotel fs-4" style="color:orange; font-size:1.3em !important;"></i> Alojamientos</h1>
+                    <h3><i class="fa-solid fa-hotel fs-4" style="color:orange; font-size:1.3em !important;"></i> Alojamientos</h3>
                 </div>
                 <!-- Contacto -->
                 <div class="col-12 col-md-4 mb-3 d-flex flex-column justify-content-center align-items-center">

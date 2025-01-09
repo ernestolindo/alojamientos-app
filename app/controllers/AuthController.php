@@ -16,20 +16,17 @@ class AuthController
     public function register()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+
             // Mostrar el formulario de registro
-            require_once "app/views/registro.php";
+            require_once "app/views/registro.php"; 
+
         } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
             // Procesar los datos enviados por el formulario
             $nombre = $_POST['nombre'] ?? '';
             $correo = $_POST['correo'] ?? '';
             $contrasenia = $_POST['contrasenia'] ?? '';
             $tipo = $_POST['tipo'] ?? 'usuario';
-
-            // Validar los campos
-            if (empty($nombre) || empty($correo) || empty($contrasenia) || empty($tipo)) {
-                echo "Por favor llena todos los campos.";
-                return;
-            }
 
             // Verificar si el correo ya está registrado
             $usuarioExistente = $this->usuarioModel->obtenerUsuarioPorCorreo($correo);

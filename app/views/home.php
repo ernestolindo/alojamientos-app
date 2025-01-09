@@ -15,9 +15,6 @@
     <?php require "app/views/partials/navbar.php"; ?>
 
     <main>
-
-
-
         <div class="central-container d-flex flex-column justify-content-center align-items-center">
 
             <!--SECTION de contenido-->
@@ -67,13 +64,16 @@
                                             alt="Alojamiento <?= htmlspecialchars($alojamiento['nombre']); ?>" style="object-fit: cover; width: 100%; height: 200px;">
                                     </a>
 
-                                    <?php if (isset($_SESSION['tipo']) !== "usuario") {
-                                    } else { ?>
-                                        <button class="heart-btn position-absolute top-0 end-0 m-2 bg-transparent border-0"
-                                            type="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="+Favoritos">
-                                            <i class="fa-solid fa-heart fs-3"></i>
-                                        </button>
-                                    <?php } ?>
+                                    <?php if (isset($_SESSION['tipo'])) {
+                                        if ($_SESSION['tipo'] === "usuario") {
+                                    ?>
+                                            <button class="heart-btn position-absolute top-0 end-0 m-2 bg-transparent border-0"
+                                                type="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="+Favoritos">
+                                                <i class="fa-solid fa-heart fs-3"></i>
+                                            </button>
+                                    <?php
+                                        }
+                                    } ?>
                                 </div>
                                 <div class="card-body border-0 px-0">
                                     <strong class="text-capitalize d-block"><?= htmlspecialchars($alojamiento['nombre']); ?></strong>
@@ -96,15 +96,6 @@
                     </p>
                 <?php endif; ?>
             </div>
-
-            <!-- Comprobar que las sesiones funcionan -->
-            <!-- Puedes borrar o hacer mas bonito eso -->
-            <?php if (isset($_SESSION['usuario_id'])) { ?>
-                <h1>Bienvenid@, <?= htmlspecialchars($_SESSION['nombre']) ?>!</h1>
-                <p>Tu rol es: <?= htmlspecialchars($_SESSION['tipo']) ?></p>
-            <?php } else { ?>
-                <h1>Usuario no ha iniciado sesion</h1>
-            <?php } ?>
         </section>
 
     </main>

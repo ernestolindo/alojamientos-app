@@ -70,9 +70,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `contrasenia`, `tipo`) VALUES
-(1, 'Admin', 'admin@example.com', 'adminpass', 'admin'),
-(2, 'Juan Pérez', 'juan.perez@example.com', '123456', 'usuario'),
-(3, 'Ana López', 'ana.lopez@example.com', 'password123', 'usuario');
+(1, 'admin', 'admin@example.com', '$2y$10$xRzb4c5nePa5fCAmP2ltguUyT.2dCOXLPJIRdrwQAZ6sm6LJzJILC', 'admin');
 
 SELECT * FROM usuarios;
 
@@ -87,6 +85,7 @@ CREATE TABLE `usuarios_alojamientos` (
   `alojamiento_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+select * from usuarios_alojamientos;
 --
 -- Dumping data for table `usuarios_alojamientos`
 --
@@ -135,7 +134,7 @@ ALTER TABLE `alojamientos`
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -145,8 +144,8 @@ ALTER TABLE `usuarios`
 -- Constraints for table `usuarios_alojamientos`
 --
 ALTER TABLE `usuarios_alojamientos`
-  ADD CONSTRAINT `usuarios_alojamientos_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`),
-  ADD CONSTRAINT `usuarios_alojamientos_ibfk_2` FOREIGN KEY (`alojamiento_id`) REFERENCES `alojamientos` (`id`);
+  ADD CONSTRAINT `usuarios_alojamientos_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `usuarios_alojamientos_ibfk_2` FOREIGN KEY (`alojamiento_id`) REFERENCES `alojamientos` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

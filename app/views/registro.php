@@ -106,13 +106,6 @@
                     <input type="password" class="form-control" id="contrasenia" name="contrasenia" required>
                 </div>
                 <div class="mb-3">
-                    <label for="tipo" class="form-label">
-                        <i class="fas fa-user-tag icon"></i> Tipo de usuario
-                    </label>
-                    <select class="form-select" id="tipo" name="tipo" required>
-                        <option value="usuario">Usuario</option>
-                        <option value="admin">Admin</option>
-                    </select>
                 </div>
                 <div class="text-center">
                     <p>¿Ya tienes una cuenta? <a style="color: #6666ff" href="/Alojamientos_app_PHP/auth/login/">Iniciar Sesión</a></p>
@@ -121,6 +114,16 @@
                     <button type="submit" class="btn btn-dark" style="background-color: #6666ff">Registrarse</button>
                 </div>
             </form>
+            <div class="dropdown text-center mt-1">
+                <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-circle-exclamation text-warning"></i> Info
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#"><strong>Admin Registrado</strong></a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-envelope"></i> admin@example.com</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-lock"></i> adminpass</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 

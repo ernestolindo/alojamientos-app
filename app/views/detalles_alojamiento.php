@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles del Alojamiento</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
 </head>
 
 <body style="font-family: 'Open Sans', serif">
@@ -122,7 +121,7 @@
                         <button type="button" id="editButton" class="btn btn-success text-white"><i class="fa-solid fa-pen-to-square me-1"></i>Editar</button>
                         <a href="/Alojamientos_app_PHP/home/index/" class="btn btn-danger text-white" data-bs-target="#modalDelete" data-bs-toggle="modal"> <i class="fa-solid fa-trash me-1"></i>Eliminar</a>
                     <?php } else { ?>
-                        <a href="#" class="btn btn-danger text-white"> <i class="fa-solid fa-heart"></i> Agregar a favorito</a>
+                        <button type="button" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#modalFavorito"> <i class="fa-solid fa-heart"></i> Agregar a favorito</button>
                 <?php }
                 } ?>
             </div>
@@ -157,6 +156,32 @@
         </div>
     </div>
 
+    <!-- Modal para confirmar la agregacion como favorito -->
+    <div class="modal fade" id="modalFavorito" tabindex="-1" aria-labelledby="labelFavorito" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <p class="mb-3">¿Agregar alojamiento como favorito?</p>
+
+                    <form action="/Alojamientos_app_PHP/Alojamiento/add_favorito/" method="POST">
+
+                        <!-- id_alojamiento -->
+                        <input type="text" name="id_alojamiento" value="<?= htmlspecialchars($alojamiento['id']); ?>" hidden>
+
+                        <!-- id_usuario -->
+                        <input type="text" name="id_usuario" value="<?= $_SESSION['usuario_id']; ?>" hidden>
+
+                        <!-- Botones -->
+                        <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Agregar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    </form>
+                    <div class="d-flex justify-content-center gap-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- BOOTSTRAP JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -168,23 +193,6 @@
             const editForm = document.getElementById('editForm');
             editForm.style.display = "block";
             editButton.style.display = "none";
-        });
-
-        //Confirma si la imagen sera cambiada checkeando un checkbox
-        const checkImagen = document.querySelector('.form-check-input');
-        const inputImagen = document.querySelector('#imagen');
-        const imagenValue = document.querySelector('#imagenValue');
-
-        imagenValue.value = 1;
-
-        checkImagen.addEventListener('change', () => {
-            if (checkImagen.checked) {
-                inputImagen.disabled = false;
-                imagenValue.value = 1;
-            } else {
-                inputImagen.disabled = true;
-                imagenValue.value = "<?= htmlspecialchars($alojamiento['imagen']); ?>";
-            }
         });
     </script>
 </body>

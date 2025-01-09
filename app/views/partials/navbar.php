@@ -133,7 +133,7 @@ echo ($url_vista !== "/Alojamientos_app_PHP/home/index/") ? session_start()  : '
                                 <?php if ($_SESSION['tipo'] === "admin") { ?>
                                     <li><a class="dropdown-item text-black" href="/Alojamientos_app_PHP/Alojamiento/create/">+ Añadir alojamiento</a></li>
                                 <?php } else { ?>
-                                    <li><a class="dropdown-item text-black" href="#">Ver favoritos</a></li>
+                                    <li><a class="dropdown-item text-black" href="/Alojamientos_app_PHP/Alojamiento/add_favorito/">Ver favoritos</a></li>
                                 <?php } ?>
                             </ul>
                         </div>

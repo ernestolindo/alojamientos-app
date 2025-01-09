@@ -64,7 +64,7 @@ class UsuarioModel
         $stmt->bindParam(":id", $id);
         $stmt->bindParam(":nombre", $nombre);
         $stmt->bindParam(":correo", $correo);
-        $stmt->bindParam(":contrasenia", $contrasenia); // Asegúrate de hashear la contraseña antes de actualizarla
+        $stmt->bindParam(":contrasenia", $contrasenia);
         $stmt->bindParam(":tipo", $tipo);
         return $stmt->execute();
     }
@@ -78,32 +78,6 @@ class UsuarioModel
         return $stmt->execute();
     }
 
-    // Funcion para verificar credenciales
-    /*
-    public function verificarCredenciales($correo, $contrasenia)
-    {
-        $query = "SELECT * FROM usuarios WHERE correo = :correo LIMIT 1"; // Consulta para buscar al usuario
-        $stmt = $this->db->prepare($query);
-        $stmt->bindParam(":correo", $correo);
-        $stmt->execute();
-
-        // Verificar si se encontró el usuario
-        if ($stmt->rowCount() > 0) {
-            $usuario = $stmt->fetch(PDO::FETCH_ASSOC); // Obtener los datos del usuario
-
-            // Comparar la contraseña ingresada con la almacenada
-            if (password_verify($contrasenia, $usuario['contrasenia'])) {
-                // Las credenciales son correctas, devolver información del usuario
-                return $usuario;
-            } else {
-                // Contraseña incorrecta
-                return false;
-            }
-        } else {
-            // Usuario no encontrado
-            return false;
-        }
-    }*/
     public function verificarCredenciales($correo, $contrasenia)
     {
         $query = "SELECT * FROM usuarios WHERE correo = :correo";

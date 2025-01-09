@@ -12,7 +12,7 @@
 
 <body style="font-family: 'Open Sans', serif">
 
-    <?php require "app/views/partials/navbar.php"; ?>
+    <?php require "app/views/partials/navbar.php"; ?> <!-- NAVBAR -->
 
     <main>
         <div class="central-container d-flex flex-column justify-content-center align-items-center">
@@ -63,17 +63,6 @@
                                         <img class="img-alojamiento img-fluid rounded" src="<?= htmlspecialchars($alojamiento['imagen']); ?>"
                                             alt="Alojamiento <?= htmlspecialchars($alojamiento['nombre']); ?>" style="object-fit: cover; width: 100%; height: 200px;">
                                     </a>
-
-                                    <?php if (isset($_SESSION['tipo'])) {
-                                        if ($_SESSION['tipo'] === "usuario") {
-                                    ?>
-                                            <button class="heart-btn position-absolute top-0 end-0 m-2 bg-transparent border-0"
-                                                type="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="+Favoritos">
-                                                <i class="fa-solid fa-heart fs-3"></i>
-                                            </button>
-                                    <?php
-                                        }
-                                    } ?>
                                 </div>
                                 <div class="card-body border-0 px-0">
                                     <strong class="text-capitalize d-block"><?= htmlspecialchars($alojamiento['nombre']); ?></strong>
@@ -99,6 +88,19 @@
         </section>
 
     </main>
+
+    <!-- Modal para confirmar la agregacion como favorito -->
+    <div class="modal fade" id="modalFavorito" tabindex="-1" aria-labelledby="labelFavorito" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p>¿Agregar alojamiento como favorito?</p>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Agregar</button>
+                    <button type="button" class="btn btn-danger btn-close" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <?php require "app/views/partials/footer.php"; ?> <!-- FOOTER -->
 

@@ -15,7 +15,43 @@ class AuthController
     // Función para manejar el registro
     public function register()
     {
-        // Aquí implementarás la lógica del registro
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            // Mostrar el formulario de registro
+            require_once "app/views/registro.php";
+        } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Procesar los datos enviados por el formulario
+            $nombre = $_POST['nombre'] ?? '';
+            $correo = $_POST['correo'] ?? '';
+            $contrasenia = $_POST['contrasenia'] ?? '';
+            $tipo = $_POST['tipo'] ?? 'usuario';
+
+            // Validar los campos
+            if (empty($nombre) || empty($correo) || empty($contrasenia) || empty($tipo)) {
+                echo "Por favor llena todos los campos.";
+                return;
+            }
+
+            // Verificar si el correo ya está registrado
+            $usuarioExistente = $this->usuarioModel->obtenerUsuarioPorCorreo($correo);
+            if ($usuarioExistente) {
+                echo "El correo ya está registrado.";
+                return;
+            }
+
+            // Hash de la contraseña
+            $contraseniaHash = password_hash($contrasenia, PASSWORD_DEFAULT);
+
+            // Registrar el nuevo usuario
+            $registrado = $this->usuarioModel->registrarUsuario($nombre, $correo, $contraseniaHash, $tipo);
+
+            if ($registrado) {
+                echo "Registro exitoso. Ahora puedes iniciar sesión.";
+                header("Location: /Alojamientos_app_PHP/auth/login/");
+                exit();
+            } else {
+                echo "Hubo un problema al registrar el usuario. Por favor intenta de nuevo.";
+            }
+        }
     }
 
     // Función para manejar el inicio de sesión
@@ -52,9 +88,11 @@ class AuthController
         }
     }
 
-    // Función para manejar el cierre de sesión
     public function logout()
     {
-        // Aquí implementarás la lógica para cerrar la sesión
+        session_start();
+        session_destroy();
+        header("Location: /Alojamientos_app_PHP/home/index/");
+        exit();
     }
 }

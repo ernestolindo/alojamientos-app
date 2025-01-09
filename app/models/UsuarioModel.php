@@ -44,6 +44,16 @@ class UsuarioModel
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    // Función para obtener los detalles de un usuario específico
+    public function obtenerUsuarioPorCorreo($correo)
+    {
+        $query = "SELECT * FROM usuarios WHERE correo = :correo";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':correo', $correo);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     // Función para editar un usuario
     public function editUsuario($id, $nombre, $correo, $contrasenia, $tipo)
     {

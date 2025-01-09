@@ -12,9 +12,11 @@
 
 <body style="font-family: 'Open Sans', serif">
 
-    <?php require "app/views/partials/navbar.php"; ?> <!--NAVBAR-->
+    <?php require "app/views/partials/navbar.php"; ?>
 
     <main>
+
+
 
         <div class="central-container d-flex flex-column justify-content-center align-items-center">
 
@@ -94,6 +96,15 @@
                     </p>
                 <?php endif; ?>
             </div>
+
+            <!-- Comprobar que las sesiones funcionan -->
+            <!-- Puedes borrar o hacer mas bonito eso -->
+            <?php if (isset($_SESSION['usuario_id'])) { ?>
+                <h1>Bienvenid@, <?= htmlspecialchars($_SESSION['nombre']) ?>!</h1>
+                <p>Tu rol es: <?= htmlspecialchars($_SESSION['tipo']) ?></p>
+            <?php } else { ?>
+                <h1>Usuario no ha iniciado sesion</h1>
+            <?php } ?>
         </section>
 
     </main>

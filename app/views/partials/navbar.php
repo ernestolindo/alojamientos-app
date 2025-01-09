@@ -90,6 +90,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="/Alojamientos_app_PHP/auth/register/">Registrate</a></li>
                                 <li><a class="dropdown-item" href="/Alojamientos_app_PHP/auth/login/">Iniciar Sesión</a></li>
+                                <li><a class="dropdown-item" href="/Alojamientos_app_PHP/auth/logout/">Cerrar Sesion</a></li>
                             </ul>
                         </div>
                     </li>

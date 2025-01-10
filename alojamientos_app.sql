@@ -112,6 +112,7 @@ ALTER TABLE `alojamientos`
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `correo` (`correo`);
+  
 
 --
 -- Indexes for table `usuarios_alojamientos`

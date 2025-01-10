@@ -163,7 +163,7 @@
                 <div class="modal-body text-center">
                     <p class="mb-3">¿Agregar alojamiento como favorito?</p>
 
-                    <form action="/Alojamientos_app_PHP/Alojamiento/add_favorito/" method="POST">
+                    <form action="/Alojamientos_app_PHP/Useralojamiento/add_favorito/" method="POST">
 
                         <!-- id_alojamiento -->
                         <input type="text" name="id_alojamiento" value="<?= htmlspecialchars($alojamiento['id']); ?>" hidden>

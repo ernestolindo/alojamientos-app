@@ -83,62 +83,8 @@
         </div>
     </div>
 
-    <!-- Modal para confirmar la agregacion como favorito -->
-    <div class="modal fade" id="modalFavorito" tabindex="-1" aria-labelledby="labelFavorito" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body text-center">
-                    <p class="mb-3">¿Agregar alojamiento como favorito?</p>
-
-                    <form action="/Alojamientos_app_PHP/Alojamiento/add_favorito/" method="POST">
-
-                        <!-- id_alojamiento -->
-                        <input type="text" name="id_alojamiento" value="<?= htmlspecialchars($alojamiento['id']); ?>" hidden>
-
-                        <!-- id_usuario -->
-                        <input type="text" name="id_usuario" value="<?= $_SESSION['usuario_id']; ?>" hidden>
-
-                        <!-- Botones -->
-                        <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Agregar</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    </form>
-                    <div class="d-flex justify-content-center gap-3">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- BOOTSTRAP JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-        //Hace aparecer el form de editar y desaparece el boton
-        const editButton = document.getElementById('editButton');
-        editButton.addEventListener("click", () => {
-
-            const editForm = document.getElementById('editForm');
-            editForm.style.display = "block";
-            editButton.style.display = "none";
-        });
-
-        //Confirma si la imagen sera cambiada checkeando un checkbox
-        const checkImagen = document.querySelector('.form-check-input');
-        const inputImagen = document.querySelector('#imagen');
-        const imagenValue = document.querySelector('#imagenValue');
-
-        imagenValue.value = 1;
-
-        checkImagen.addEventListener('change', () => {
-            if (checkImagen.checked) {
-                inputImagen.disabled = false;
-                imagenValue.value = 1;
-            } else {
-                inputImagen.disabled = true;
-                imagenValue.value = "<?= htmlspecialchars($alojamiento['imagen']); ?>";
-            }
-        });
-    </script>
 </body>
 
 </html>

@@ -1,16 +1,14 @@
 <?php
-$url_vista = $_SERVER['REQUEST_URI']; //Obtiene la URL de la vista actual
-echo ($url_vista !== "/Alojamientos_app_PHP/home/index/") ? session_start()  : '';
+$url_vista = $_SERVER['REQUEST_URI'];
+if ($url_vista !== "/Alojamientos_app_PHP/home/index/") {
+    session_start(); // Inicia la sesion en todas las vistas, menos en home.php
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar</title>
-
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwesome CSS -->
@@ -133,7 +131,7 @@ echo ($url_vista !== "/Alojamientos_app_PHP/home/index/") ? session_start()  : '
                                 <?php if ($_SESSION['tipo'] === "admin") { ?>
                                     <li><a class="dropdown-item text-black" href="/Alojamientos_app_PHP/Alojamiento/create/">+ Añadir alojamiento</a></li>
                                 <?php } else { ?>
-                                    <li><a class="dropdown-item text-black" href="/Alojamientos_app_PHP/Alojamiento/add_favorito/">Ver favoritos</a></li>
+                                    <li><a class="dropdown-item text-black" href="/Alojamientos_app_PHP/Useralojamiento/add_favorito/">Ver favoritos</a></li>
                                 <?php } ?>
                             </ul>
                         </div>

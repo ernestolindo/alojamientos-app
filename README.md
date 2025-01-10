@@ -1,37 +1,100 @@
 # **Alojamientos App**
 
-Alojamientos App es una aplicación web de arrendamiento vacacional.
+Alojamientos App es una plataforma web diseñada para el arrendamiento vacacional, permitiendo a los usuarios explorar alojamientos disponibles y administrarlos de manera intuitiva.
 
-Vistas:
+---
 
--   Landing page: Lista de alojamientos
--   Inicio de sesión
--   Registro
--   Dashboard de usuario: le permite al usuario marcar arrendamientos como favoritos, conservándolos en su lista personal
--   Dashboard de administrador: le permite al administrador agregar nuevos alojamientos
+## **Vistas**
 
-El usuario puede:
+### Página Principal (Home)
 
--   Registrarse e iniciar sesión
--   Agregar alojamientos a su colección personal
+- Muestra una lista de alojamientos disponibles para cualquier visitante.
+    
 
-El administrador puede:
+### Página de Inicio de Sesión
 
--   Registrarse e iniciar sesión
--   Agregar nuevos alojamientos a la app web
+- Permite a los usuarios y administradores iniciar sesión en la aplicación.
+    
 
-## **Información técnica**
+### Página de Registro
 
-Arquitectura: Modelo-Vista-Controlador
+- Permite a nuevos usuarios registrarse en la plataforma.
+    
 
-Tecnologías:
+### Colección de Favoritos
 
--   PHP
--   HTML
--   CSS
--   Bootstrap
+- Los usuarios pueden:
+    
+    - Ver alojamientos marcados como favoritos.
+        
+    - Eliminar alojamientos de su colección personal.
+        
 
-## **Desarrolladores**
+### Página de Creación de Alojamiento
 
--   Kevin Eduardo Arévalo Palacios
--   David Ernesto Lindo Argueta
+- Los administradores pueden agregar nuevos alojamientos a la plataforma.
+    
+
+### Página de Detalles de un Alojamiento
+
+- Funcionalidades para usuarios:
+    
+    - Marcar un alojamiento como favorito.
+        
+- Funcionalidades para administradores:
+    
+    - Editar los detalles de un alojamiento.
+        
+    - Eliminar un alojamiento.
+        
+
+---
+
+## **Funcionalidades**
+
+### Para Todos (Sin Iniciar Sesión)
+
+- Ver la lista de alojamientos disponibles.
+    
+
+### Para Usuarios Registrados
+
+- Crear una cuenta y acceder mediante inicio de sesión.
+    
+- Administrar una colección personal de alojamientos favoritos.
+    
+
+### Para Administradores
+
+- Iniciar sesión utilizando las credenciales predeterminadas:
+    
+    - **Correo:** admin@example.com
+        
+    - **Contraseña:** adminpass
+        
+- Agregar nuevos alojamientos a la plataforma.
+    
+
+---
+
+## **Información Técnica**
+
+### Arquitectura
+
+- Basada en el patrón **Modelo-Vista-Controlador (MVC)**.
+    
+
+### Tecnologías Utilizadas
+
+- **Backend:** PHP
+    
+- **Frontend:** HTML, CSS, Bootstrap
+    
+
+---
+
+## **Equipo de Desarrollo**
+
+- **Kevin Eduardo Arévalo Palacios**
+    
+- **David Ernesto Lindo Argueta**

@@ -194,6 +194,23 @@
             editForm.style.display = "block";
             editButton.style.display = "none";
         });
+
+        //Identificar si se quiere cambiar imagen o no
+        const checkbox = document.querySelector('.form-check-input');
+        const inputFile = document.getElementById('imagen');
+        const imgValue = document.getElementById('imagenValue');
+
+        function toggleFileInput() {
+            if (checkbox.checked) {
+                inputFile.disabled = false; 
+                imagenValue.value = 1;    //Si se habilita el check, el input hidden indica el procesamiento de una nueva imagen
+            } else {
+                inputFile.disabled = true; 
+                imagenValue.value = "<?= htmlspecialchars($alojamiento['imagen']); ?>";  //Si se deshabilita, el input hidden retorna la misma ruta de la imagen
+            }
+        }
+        checkbox.addEventListener('change', toggleFileInput);
+        toggleFileInput();
     </script>
 </body>
 

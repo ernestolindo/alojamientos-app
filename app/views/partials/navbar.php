@@ -1,7 +1,7 @@
 <?php
 $url_vista = $_SERVER['REQUEST_URI'];
-if ($url_vista !== "/Alojamientos_app_PHP/home/index/") {
-    session_start(); // Inicia la sesion en todas las vistas, menos en home.php
+if ($url_vista !== "/Alojamientos_app_PHP/home/index/" && $url_vista !== "/Alojamientos_app_PHP/Useralojamiento/add_favorito/") {
+    session_start(); // Inicia la sesion en todas las vistas, menos en home.php y usuario_favoritos.php
 }
 ?>
 
@@ -90,7 +90,7 @@ if ($url_vista !== "/Alojamientos_app_PHP/home/index/") {
                                     echo (!isset($_SESSION['usuario_id']))
                                         ? '<i class="fa-solid fa-user fs-5"></i>'
                                         : ($_SESSION['tipo'] === "admin"
-                                            ? '<i class="fa-solid fa-user-secret fs-4"></i>' . $_SESSION['nombre'] 
+                                            ? '<i class="fa-solid fa-user-secret fs-4"></i>' . $_SESSION['nombre']
                                             : '<i class="fa-solid fa-user fs-5"></i>' . $_SESSION['nombre']);
                                     ?>
                                 </button>

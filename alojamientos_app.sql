@@ -90,10 +90,8 @@ select * from usuarios_alojamientos;
 -- Dumping data for table `usuarios_alojamientos`
 --
 
--- INSERT INTO `usuarios_alojamientos` (`usuario_id`, `alojamiento_id`) VALUES
--- (1, 1),
--- (1, 2),
--- (2, 3);
+INSERT INTO `usuarios_alojamientos` (`usuario_id`, `alojamiento_id`) VALUES
+(2, 1);
 
 --
 -- Indexes for dumped tables

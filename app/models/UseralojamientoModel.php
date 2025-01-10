@@ -46,4 +46,18 @@ class UseralojamientoModel
         $stmt->bindParam(":alojamiento_id", $id_alojamiento);
         return $stmt->execute();
     }
+
+    //Funcion para verificar si un registro ya se encuentra como favorito
+    public function existeRegistro($id_usuario, $id_alojamiento)
+    {
+        $query = "SELECT 1 FROM usuarios_alojamientos 
+              WHERE usuario_id = :usuario_id AND alojamiento_id = :alojamiento_id 
+              LIMIT 1"; 
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':usuario_id', $id_usuario, PDO::PARAM_INT);
+        $stmt->bindParam(':alojamiento_id', $id_alojamiento, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC) !== false;
+    }
 }

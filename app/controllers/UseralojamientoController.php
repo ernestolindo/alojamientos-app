@@ -31,9 +31,9 @@ class UseralojamientoController
             }
 
             //Validacion para no duplicar favoritos
-            if ($alojamiento_user->existeRegistro($id_alojamiento, $id_alojamiento)) {
+            if ($alojamiento_user->existeRegistro($id_usuario, $id_alojamiento)) {
                 echo "El alojamiento ya está en favoritos.";
-                
+
             } else {
 
                 $resultado = $alojamiento_user->add_favorito($id_usuario, $id_alojamiento);

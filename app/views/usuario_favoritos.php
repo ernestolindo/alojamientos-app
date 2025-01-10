@@ -12,13 +12,11 @@
     <?php require "app/views/partials/navbar.php"; ?> <!-- NAVBAR -->
 
     <main class="container" style="margin-top: 150px;">
-        <p>Favoritos</p>
+        <p class="text-center fs-2"><strong>Favoritos</strong></p>
 
-        <?php var_dump($alojamientosFav) ?>
-
-        <?php if (!empty($alojamientosFav)): ?>
+        <?php if (!empty($favoritos)): ?>
             <div class="row">
-                <?php foreach ($alojamientosFav as $alojamiento): ?>
+                <?php foreach ($favoritos as $alojamiento): ?>
                     <div class="col-md-4">
                         <div class="card mb-4">
                             <?php if ($alojamiento['imagen']): ?>

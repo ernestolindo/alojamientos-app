@@ -97,8 +97,7 @@ select * from usuarios_alojamientos;
 
 --
 -- Indexes for dumped tables
---
-
+SHOW FULL PROCESSLIST;
 --
 -- Indexes for table `alojamientos`
 --

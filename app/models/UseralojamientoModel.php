@@ -15,10 +15,9 @@ class UseralojamientoModel
     // Funcion para obtener un JOIN con los datos del alojamiento y su relacion con un usuario
     public function obtenerAlojamiento_favorito($id_usuario)
     {
-        $query = "SELECT a.id, a.nombre, a.descripcion, a.direccion, a.precio, a.imagen, a.minpersona, a.maxpersona, a.departamento
+        $query = "SELECT a.*
             FROM usuarios_alojamientos ua
-            JOIN alojamientos a
-            ON ua.alojamiento_id = a.id
+            JOIN alojamientos a ON ua.alojamiento_id = a.id
             WHERE ua.usuario_id = :usuario_id
         ";
 
